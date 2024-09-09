@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <time.h>
 
 //Verifica se a posição atual é válida
 //Para isso, primeiro se itera em todas as colunas anteriores
@@ -69,8 +70,14 @@ int main(int argc, char *argv[]){
         return 1;
     }
 
+    clock_t start = clock();
+
     //Roda o algoritmo em um tabuleiro tamanho n a partir da coluna 0
     solveNQueens(board, 0, n);
+
+    clock_t end = clock();
+    double time_taken = (double)(end - start) / CLOCKS_PER_SEC;
+    printf("Tempo para resolver: %.6f seconds\n", time_taken);
 
     free(board);
     return 0;
