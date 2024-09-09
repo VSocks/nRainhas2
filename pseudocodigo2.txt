@@ -1,0 +1,24 @@
+verificaPosição
+    se (posição atual tem conflito)
+        retorna inválida
+    senão
+        retorna válida
+    fim-se
+fim verificaPosição
+
+buscarPosiçãoValida (linha atual)
+    se (solução encontrada)
+        imprime (resultado)
+    senão, para (cada coluna da linha)
+        se (posição é válida)
+            marcar posição
+            buscarPosiçãoValida (proxima linha)
+        fim-se
+    fim-se
+fim buscarPosiçãoValida
+
+main
+    recebe input (N)
+    aloca memória (tabuleiro)
+    buscaPosiçãoValida (a partir da primeira linha)
+fim main
